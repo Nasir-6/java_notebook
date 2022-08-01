@@ -130,24 +130,4 @@ public class Assignment {
 
     }
 
-
-
-
-
-
-
-    // The Java Spec says that everything in Java is pass-by-value.
-    // Here is a pass-by-value
-    public static void advancedPrimitiveAssignedByValue() {
-        int homerAge = 30;
-        changeHomerAge(homerAge);
-        System.out.println(homerAge); // 30
-        // It doesn't change to 35 as the local homerAge is just copied into the method - see name below
-        // You'd think it would change but the variable passed in is just copied - NOT referenced!
-        // kinda like copiedHomerAge = homerAge; - assignByValue
-    }
-
-    static void changeHomerAge(int copiedHomerAge) {
-        copiedHomerAge = 35;
-    }
 }
