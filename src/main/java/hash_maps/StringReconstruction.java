@@ -11,6 +11,7 @@ public class StringReconstruction {
     // This is done by checking the hashmap for it and if so it also deducts the occurrence -
     // so if it is needed again and not enough occurrences are there it will return false
 
+    // This is of time complexity of O(2n) - due to the 2 for loops - which is O(n) as constants are ignored
 
     public static void main(String[] args) {
 
