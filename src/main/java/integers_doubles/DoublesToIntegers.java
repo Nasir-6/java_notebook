@@ -12,7 +12,8 @@ public class DoublesToIntegers {
         double medianWithoutCastingAsDouble = (arr.length - 1) / 2;
         System.out.println(medianWithoutCastingAsDouble);   // 1.0 - It loses the 0.5 as the result is not casted into a double!
 
-        // This is the proper way to capture the double result!!
+        // IMPORTANT TAKE NOTE OF THIS!!!!!!!
+        // This is the proper way to capture the double result!! - OTHERWISE WILL LOSE THE DECIMAL WITHOUT EVEN KNOWING!!!!
         // cast as a double by using - (double)
         double median = (double) (arr.length - 1) / 2; // 1.5
         System.out.println(median);
