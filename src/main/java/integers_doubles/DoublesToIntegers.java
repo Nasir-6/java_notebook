@@ -14,6 +14,7 @@ public class DoublesToIntegers {
 
         // IMPORTANT TAKE NOTE OF THIS!!!!!!!
         // This is the proper way to capture the double result!! - OTHERWISE WILL LOSE THE DECIMAL WITHOUT EVEN KNOWING!!!!
+        // CAN LEAD TO A DEADLY BUG
         // cast as a double by using - (double)
         double median = (double) (arr.length - 1) / 2; // 1.5
         System.out.println(median);
