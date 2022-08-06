@@ -57,8 +57,8 @@ public class PrintingALinkedList {
         ListNode current = dummy;
 
         for (int i = 1; i < 10; i++) {
-            current.next = new ListNode(i);
-            current = current.next;
+            current.next = new ListNode(i);     // NOTE: SET current.next value!!!
+            current = current.next;             // THEN SET current to the next value!!!
         }
 
         System.out.println("This is the current ListNode!!!!");
