@@ -91,4 +91,24 @@ public class ReversingLinkedList {
         System.out.println(prev.toString());
 
     }
+
+
+    // This is the actual method that reverses the list - used in LeetCode
+    public ListNode reverseList(ListNode head) {
+
+        // Initiliase curr, prev and nxt variables
+        ListNode curr = head;
+        ListNode prev = null;
+        ListNode nxt = null;
+
+        while(curr != null){
+            nxt = curr.next;    //Store old curr with RHS links
+            curr.next = prev;   // Now redirect the curr.next to prev value - i.e point left
+            prev = curr;        // Now store this updated curr with redirected link in prev - to use later
+            curr = nxt;         // move onto next ListNode on list - reupdate curr to old list
+        }
+
+
+        return prev;
+    }
 }
