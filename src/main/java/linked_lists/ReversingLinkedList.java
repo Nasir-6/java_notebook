@@ -1,7 +1,7 @@
 package linked_lists;
 
 public class ReversingLinkedList {
-    public static class ListNode {
+    public class ListNode {
         // Properties
         int val;
         ReversingLinkedList.ListNode next;
@@ -45,52 +45,33 @@ public class ReversingLinkedList {
 
     public static void main(String[] args) {
 
+        ReversingLinkedList reversingLinkedList = new ReversingLinkedList();
+        ReversingLinkedList.ListNode myLinkedList = reversingLinkedList.makeALinkedList();
 
-        ReversingLinkedList.ListNode dummyToReverse = new ReversingLinkedList.ListNode(0);
+
+        ListNode reversedList = reversingLinkedList.reverseList(myLinkedList);
+        System.out.println(reversedList);
+
+    }
+
+    public ListNode makeALinkedList(){
+        ListNode dummy = new ListNode(0);
         // Current is the ListNode/pointer which will change! - This is needed to build the list/links!!
         // It is always the tail of the list!!
-        ReversingLinkedList.ListNode current = dummyToReverse;
+        ListNode current = dummy;
 
         for (int i = 1; i < 10; i++) {
-            current.next = new ReversingLinkedList.ListNode(i);     // NOTE: SET current.next value!!!
+            current.next = new ListNode(i);     // NOTE: SET current.next value!!!
             current = current.next;             // THEN SET current to the next value!!!
         }
 
 
-        System.out.println("This is the ListNode dummyToReverse i.e");
-        System.out.println(dummyToReverse.next.toString());
+        System.out.println("This is the ListNode that was created");
+        System.out.println(dummy.next.toString());
         // 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9
-
-
-
-        //========================== TIME TO REVERSE THE LIST!!!!!!!! ==========================
-        // Now reverse it
-        dummyToReverse = dummyToReverse.next;
-        ListNode curr = dummyToReverse;
-
-        // Need a next pointer which will save curr.next value while curr.next is updated to the prev Value!!
-        // Go ahead and keep breaking next link and redirecting to prev
-        // prev starts off as null - then keeps getting updated to curr.next whilst curr.next goes to next value
-        // until curr is null - i.e end of the list to be reversed
-
-        ListNode prev = null;
-        ListNode nxt = null;        // nxt pointer is just here to save the curr.next value whilst curr.next is updated
-
-
-        while (curr != null){
-            // save the curr.next value - this link will be lost so need to keep - so can keep RHS of old list!
-            nxt = curr.next;
-            // Now point the curr.next value to prev - so it starts to point to prev value! - breaks previous curr.next link!
-            curr.next = prev;
-            // Now store the new redirected/reversed list in prev - since we will be reupdating curr with the RHS of old list
-            prev = curr;        // curr here is with redirected next link!
-            // Reupdate curr - with RHS of old list
-            curr = nxt;     // curr here is the old next link - original direction!
-        }
-
-        System.out.println(prev.toString());
-
+        return dummy.next;
     }
+
 
 
     // This is the actual method that reverses the list - used in LeetCode
@@ -101,6 +82,15 @@ public class ReversingLinkedList {
         ListNode prev = null;
         ListNode nxt = null;
 
+        /* What happens in the while loop?
+         Essentially the old curr.next link is redirected to the previous node
+         whilst at the same time it moves onto the curr.next node in the list
+         Now in order to break the link/redirect it and move onto the curr.next
+         We need to store the next node value before the link is broken - thus a nxt Node is created!
+         This is updated to store the nextNode in the list before the link is broken!
+         So curr can be reassigned to it's old list Links at the end of each loop!
+         */
+
         while(curr != null){
             nxt = curr.next;    //Store old curr with RHS links
             curr.next = prev;   // Now redirect the curr.next to prev value - i.e point left
@@ -108,7 +98,7 @@ public class ReversingLinkedList {
             curr = nxt;         // move onto next ListNode on list - reupdate curr to old list
         }
 
-
+        // prev is the reversed list
         return prev;
     }
 }
