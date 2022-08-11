@@ -57,11 +57,12 @@ public class RecursiveIsValidBinarySearchTree {
         if (node == null) return true;
 
         // if (node.val is less than the min) OR (greater than maxLim) IT IS INVALID!!
-        // Also note
+        // Also note the null clause - this simulates the initial infinity value
         if ((minLim != null && node.val <= minLim) || (maxLim != null && node.val >= maxLim))
             return false;
 
-        // else carry on RECURSIVELY checking it's children - whilst passing in the updated limits!!
+        // else carry on RECURSIVELY checking its children - whilst passing in the updated limits!!
+        // The respective limit is updated with node.val (as Max for left node, and as Min for right Node)
         return (isValidBinarySearchTree(node.left, minLim, node.val) && isValidBinarySearchTree(node.right, node.val, maxLim));
     }
 }
