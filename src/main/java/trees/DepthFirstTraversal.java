@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;      // IMPORT THIS FOR LIST!!!!
 import java.util.Stack;     // IMPORT THIS FOR STACK!!
 
-public class TreeTraversal {
+public class DepthFirstTraversal {
     public static class Node {
         public int val;
         public List<Node> children;
@@ -30,7 +30,15 @@ public class TreeTraversal {
         //     / \
         //    5   6
 
-        // Expect [1, 3, 5, 6, 2, 4]
+        // For a Depth First Traversal it will go as deep as possible returning each node - until it can't
+        // 1 > 3 > 5
+        // Then it will move onto the sibling node of the deepest node
+        // 1 > 3 > 5 > 6
+        // Then it will go back up and do the same for the rest of the nodes
+        // 1 > 3 > 5 > 6 > 2 > 4
+        // It's like traversing Deep on the left and then moving right and coming back up
+
+        // Expected DFS List [1, 3, 5, 6, 2, 4]
 
         Node root = new Node(1);
         Node node2 = new Node(2);
@@ -84,7 +92,9 @@ public class TreeTraversal {
 
             // if no children move on
             if (currNode.children == null) continue;
-            // else loop through currNode.children in reverse!! - DepthFirst traversal - go deep until you can't
+            // else loop through currNode.children in reverse!!
+            // DepthFirst traversal - go deep until you can't - Work down the LHS!!
+            // If you start at the first child the stack will keep the RH Node on top and work through RHS!
             for (int i = currNode.children.size()-1; i >= 0; i--) {
                 // push each to the stack
                 stack.push(currNode.children.get(i));
