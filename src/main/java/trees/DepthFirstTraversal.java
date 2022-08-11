@@ -30,7 +30,9 @@ public class DepthFirstTraversal {
         //     / \
         //    5   6
 
-        // For a Depth First Traversal it will go as deep as possible returning each node - until it can't
+        // For a Depth First Traversal
+        // Depth meaning down/deep - i.e it will go down before moving across!!
+        // it will go as deep as possible returning each node - until it can't
         // 1 > 3 > 5
         // Then it will move onto the sibling node of the deepest node
         // 1 > 3 > 5 > 6
