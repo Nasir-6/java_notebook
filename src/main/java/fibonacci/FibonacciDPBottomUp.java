@@ -22,6 +22,8 @@ public class FibonacciDPBottomUp {
     // nMinus2 = to hold value of F(n-2)
     // nMinus1 = to hold value of F(n-1)
     // curr = to hold actual value
+    // Time Complexity O(n) as loop only runs for n amount to times
+    // This is a huge improvement compared to the O(2^n) solution via recursion!
     public static int fibonacciBottomUp(int n){
         // Base case return 0 or 1
         if(n == 1 || n == 0) return n;
