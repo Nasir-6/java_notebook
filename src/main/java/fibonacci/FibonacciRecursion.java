@@ -13,6 +13,7 @@ public class FibonacciRecursion {
     // 1) Establish th Base case - here it is F(0) = 0 & F(1) = 1
     // 2) Then establish the recursive case and call it within the function!
     // Here it is the F(n) = F(n-1) + F(n-2);
+    // This solution is O(2^n) (Actually O(2^(n-1)) but get rid of constants (-1) ) - We call it 2 times at each level
     public static int fibonacciRecursion(int n){
         // Base case - for F(0) & F(1)
         if(n == 0 || n == 1) return n;
